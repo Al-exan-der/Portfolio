@@ -1,16 +1,42 @@
 ---
+import "../styles/global.css";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Portfolio</title>
+  </head>
+  <body>
+    <header class="contenedor">
+      <nav>
+        <ul>
+          <li>
+            <a href="#inicio">Inicio</a>
+          </li>
+          <li>
+            <a href="#proyectos">Proyectos</a>
+          </li>
+          <li>
+            <a href="/cv">CV</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="contenedor">
+      <section id="inicio">
+        <h1>Alexis Gomez</h1>
+      </section>
+      <section id="proyectos">
+        <h2>Proyectos</h2>
+      </section>
+    </main>
+    <footer class="contenedor">
+      <p>© 2026, Alexis Gomez</p>
+    </footer>
+  </body>
 </html>
