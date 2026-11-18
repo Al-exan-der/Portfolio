@@ -1,43 +1,64 @@
-# Astro Starter Kit: Minimal
+# Portfolio
 
-```sh
-npm create astro@latest -- --template minimal
+Portfolio personal de desarrollo web para presentar proyectos, tecnologías utilizadas y formas de contacto.
+
+## ¿Qué es esto?
+
+Es una página web personal hecha con Astro para mostrar algunos de mis proyectos y contar un poco sobre mi experiencia en desarrollo web.
+
+También incluye enlaces a mis redes, mi correo y mi CV.
+
+## ¿Cómo lo veo?
+
+Podés verlo directamente desde GitHub Pages:
+
+**[https://al-exan-der.github.io/Portfolio/](https://al-exan-der.github.io/Portfolio/)**
+
+También podés ejecutarlo en local clonando el repositorio:
+
+```bash
+git clone https://github.com/Al-exan-der/Portfolio.git && cd Portfolio
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Necesitás tener Node.js `22.23.4` o superior. Después, instalá las dependencias y levantá el servidor de desarrollo:
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```bash
+npm install
+npm run dev
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Astro te va a indicar la dirección local para abrir la página en el navegador (por defecto, `http://localhost:4321`).
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## ¿Qué tiene?
 
-Any static assets, like images, can be placed in the `public/` directory.
+Está organizado en dos secciones principales:
 
-## 🧞 Commands
+- **Inicio**: presentación personal, descripción, avatar y enlaces a GitHub, LinkedIn y correo. También permite abrir el CV.
+- **Proyectos**: tarjetas con una captura, descripción, tecnologías utilizadas y un enlace al repositorio de cada proyecto.
 
-All commands are run from the root of the project, from a terminal:
+Los proyectos que aparecen son:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+- **Proyecto Islas**: sitio web de la Escuela Técnica N°3 Islas Malvinas.
+- **Reactstore**: tienda ficticia de videojuegos con inicio de sesión y carrito. Los datos se guardan en una base de datos MySQL.
+- **Tetris en Java**: versión del Tetris clásico con puntajes y niveles.
 
-## 👀 Want to learn more?
+Al final de la página está el footer, que vuelve a mostrar los enlaces de contacto y las redes.
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## ¿Cómo está armado por dentro?
+
+Lo armé de esta manera:
+
+- `src/pages/index.astro` — estructura y contenido de la página. Contiene los datos de los proyectos, las redes y las tecnologías que se muestran en cada tarjeta.
+- `src/styles/global.css` — estilos de toda la página: colores, tipografías, distribución, tarjetas, efectos y ajustes de accesibilidad.
+- `public/` — recursos estáticos usados por la página:
+  - `iconos/` — iconos de redes y tecnologías.
+  - `perfil.webp`, `Islas.webp`, `reactstore.webp` y `Tetris.webp` — imágenes del portfolio y de los proyectos.
+  - `Alexis Gomez.pdf` — CV enlazado desde la navegación.
+  - `favicon.ico` y `favicon.svg` — iconos de la página.
+- `astro.config.mjs` — configuración de Astro, la URL base del sitio y las tipografías.
+- `package.json` — dependencias, versión requerida de Node.js y comandos del proyecto.
+- `.github/workflows/deploy.yml` — configuración del despliegue automático en GitHub Pages al actualizar la rama `main`.
+
+## ¿Quién lo hizo?
+
+Lo hice yo, Alexis Gómez. Me encargué del diseño, la estructura, el contenido y los estilos del portfolio.
