@@ -6,18 +6,21 @@ const proyectos = [
   {
     titulo: "Proyecto Islas",
     descripcion:
-      "Sitio web de la escuela técnica, hecho para la Feria de Ciencias.",
-    enlace: "#",
+      "Sitio web de la escuela técnica, hecho en HTML, CSS y JavaScript para la Feria de Ciencias.",
+    enlace: "https://github.com/Nitram-2921/Proyecto-islas",
+    imagen: "Islas.png",
   },
   {
     titulo: "Reactstore",
-    descripcion: "Tienda web con diseño adaptable a celular y escritorio.",
-    enlace: "#",
+    descripcion: "Tienda ficticia de videojuegos, hecha con PHP y JavaScript.",
+    enlace: "https://github.com/Al-exan-der/Reactstore",
+    imagen: "reactstore.png",
   },
   {
     titulo: "Tetris en Java",
     descripcion: "Tetris con puntaje y niveles, hecho en Java.",
-    enlace: "#",
+    enlace: "https://github.com/Luketi308/Tetris",
+    imagen: "Tetris.png",
   },
 ];
 ---
@@ -31,7 +34,11 @@ const proyectos = [
     <link rel="icon" href={`${base}/favicon.ico`} />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Portfolio</title>
+    <title>Alexis Gómez | Desarrollo web</title>
+    <meta
+      name="description"
+      content="Portfolio de Alexis Gómez, estudiante de desarrollo web. Proyectos en HTML, CSS, JavaScript, PHP, Java y Astro."
+    />
   </head>
   <body>
     <header class="contenedor">
@@ -60,27 +67,48 @@ const proyectos = [
         <img
           class="avatar"
           src={`${base}/perfil.png`}
-          alt="Foto de Alexis Gomez"
+          alt="Foto de Alexis Gómez"
           width="300"
           height="300"
         />
         <div class="portada-texto">
-          <h1>Alexis Gomez</h1>
+          <h1>Alexis Gómez</h1>
           <p class="rol">Estudiante de desarrollo web</p>
-          <p>Tu descripción: quién sos y qué buscás, en dos o tres líneas.</p>
+          <p>
+            Estudiante de desarrollo web con base en HTML, CSS y JavaScript, y
+            proyectos hechos en Java, Astro y PHP. Me gusta armar la lógica de
+            las páginas y resolver los problemas que se presentan. Busco una
+            primera experiencia laboral para poder complementar mi aprendizaje
+            con trabajo real.
+          </p>
           <ul class="redes">
             <li>
-              <a href="https://github.com/Al-exan-der" target="_blank" rel="noopener">
-                GitHub
-              </a>
+              <a
+                class="icono"
+                href="https://github.com/Al-exan-der"
+                target="_blank"
+                rel="noopener"
+                aria-label="GitHub"
+                style={`--icono: url(${base}/iconos/github-icon.svg)`}
+              ></a>
             </li>
             <li>
-              <a href="https://www.linkedin.com/in/alexis-g%C3%B3mez-a4461a356/" target="_blank" rel="noopener">
-                LinkedIn
-              </a>
+              <a
+                class="icono"
+                href="https://www.linkedin.com/in/alexis-g%C3%B3mez-a4461a356/"
+                target="_blank"
+                rel="noopener"
+                aria-label="LinkedIn"
+                style={`--icono: url(${base}/iconos/linkedin-plain.svg)`}
+              ></a>
             </li>
             <li>
-              <a href="alexgome7i@gmail.com">Email</a>
+              <a
+                class="icono"
+                href="mailto:alexgome7i@gmail.com"
+                aria-label="Email"
+                style={`--icono: url(${base}/iconos/google-gmail.svg)`}
+              ></a>
             </li>
           </ul>
         </div>
@@ -90,7 +118,22 @@ const proyectos = [
         <div class="grilla">
           {proyectos.map((p) => (
             <article class="card">
-              <div class="card-imagen"></div>
+              <a
+                class="card-imagen"
+                href={p.enlace}
+                target="_blank"
+                rel="noopener"
+                aria-label={`Ver el repositorio de ${p.titulo} en GitHub`}
+              >
+                <img
+                  src={`${base}/${p.imagen}`}
+                  alt={`Captura de ${p.titulo}`}
+                  loading="lazy"
+                />
+                <span class="card-overlay" aria-hidden="true">
+                  Ver repositorio en GitHub
+                </span>
+              </a>
               <h3>{p.titulo}</h3>
               <p>{p.descripcion}</p>
               <a class="boton" href={p.enlace} target="_blank" rel="noopener">
@@ -102,7 +145,7 @@ const proyectos = [
       </section>
     </main>
     <footer class="contenedor">
-      <p>© 2026, Alexis Gomez</p>
+      <p>© 2026, Alexis Gómez</p>
     </footer>
   </body>
 </html>
