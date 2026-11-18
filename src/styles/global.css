@@ -198,6 +198,9 @@ h3 {
   object-fit: cover;
   border-radius: 50%;
   border: 2px solid var(--acento);
+  /* El único brillo en reposo de la página: suave, para que el violeta se sienta neón */
+  box-shadow: 0 0 var(--space-6)
+    color-mix(in srgb, var(--acento) 55%, transparent);
 }
 
 .portada-texto h1,
@@ -226,6 +229,18 @@ h3 {
 
 .redes a {
   color: var(--texto-importante);
+  transition: background-color 0.3s;
+}
+
+/* El brillo va en el <li> y no en el <a>: el <a> tiene máscara, y la máscara
+   recortaría su propia sombra. El <li> brilla con el dibujo ya recortado. */
+.redes li {
+  transition: filter 0.3s;
+}
+
+.redes li:has(a:hover, a:focus-visible) {
+  filter: drop-shadow(0 0 var(--space-1) var(--acento))
+    drop-shadow(0 0 var(--space-4) var(--acento));
 }
 
 /* La máscara del ícono recorta también el contorno de foco, así que
@@ -266,7 +281,8 @@ h3 {
   .card-imagen img {
     transition: transform 0.3s;
   }
-  .card-imagen:hover {
+  .card-imagen:hover,
+  .card-imagen:focus-visible {
     box-shadow: 0 0 var(--space-6) var(--acento);
   }
   .card-imagen:hover img {
@@ -298,6 +314,8 @@ h3 {
 
 @media (prefers-reduced-motion: reduce) {
   nav a,
+  .redes a,
+  .redes li,
   .card-imagen,
   .card-imagen img,
   .card-overlay {
