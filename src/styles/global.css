@@ -19,6 +19,7 @@
   --space-8: 2rem; /* 32 */
   --space-12: 3rem; /* 48 */
   --space-20: 5rem; /* 80 */
+  --space-22: 12.5rem;
 }
 
 body {
@@ -118,9 +119,17 @@ h3 {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: space-between;
   gap: var(--space-12);
   padding-block: var(--space-20);
-  justify-content: space-between;
+  padding-inline: var(--space-6); 
+}
+
+.portada-texto {
+  flex: 0 1 28rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
 }
 
 .avatar {
@@ -132,13 +141,6 @@ h3 {
   border: 2px solid var(--acento);
 }
 
-.portada-texto {
-  flex: 0 1 28rem; 
-  flex: 1 1 20rem;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-}
 
 .portada-texto h1,
 .portada-texto p {
