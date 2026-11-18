@@ -17,7 +17,8 @@ Podés verlo directamente desde GitHub Pages:
 También podés ejecutarlo en local clonando el repositorio:
 
 ```bash
-git clone https://github.com/Al-exan-der/Portfolio.git && cd Portfolio
+git clone https://github.com/Al-exan-der/Portfolio.git
+cd Portfolio
 ```
 
 Necesitás tener Node.js `22.23.4` o superior. Después, instalá las dependencias y levantá el servidor de desarrollo:
@@ -27,7 +28,7 @@ pnpm install
 pnpm dev
 ```
 
-Astro te va a indicar la dirección local para abrir la página en el navegador (por defecto, `http://localhost:4321`).
+Astro te va a indicar la dirección local para abrir la página en el navegador (por defecto, `http://localhost:4321`). Para generar la versión de producción y probarla localmente, podés usar `pnpm build` y `pnpm preview`.
 
 ## ¿Qué tiene?
 
@@ -46,17 +47,23 @@ Al final de la página está el footer, que vuelve a mostrar los enlaces de cont
 
 ## ¿Cómo está armado por dentro?
 
-Lo armé de esta manera:
+El repositorio separa el código, los recursos publicados y los materiales de documentación:
 
 - `src/pages/index.astro` — estructura y contenido de la página. Contiene los datos de los proyectos, las redes y las tecnologías que se muestran en cada tarjeta.
 - `src/styles/global.css` — estilos de toda la página: colores, tipografías, distribución, tarjetas, efectos y ajustes de accesibilidad.
-- `public/` — recursos estáticos usados por la página:
+- `public/` — recursos estáticos que Astro copia al sitio publicado:
   - `iconos/` — iconos de redes y tecnologías.
-  - `perfil.webp`, `Islas.webp`, `reactstore.webp` y `Tetris.webp` — imágenes del portfolio y de los proyectos.
-  - `Alexis Gomez.pdf` — CV enlazado desde la navegación.
-  - `favicon.ico` y `favicon.svg` — iconos de la página.
+  - `imagenes/perfil.webp` — avatar de la portada.
+  - `imagenes/proyectos/` — capturas de Proyecto Islas, Reactstore y Tetris.
+  - `documentos/CV-Alexis-Gomez.pdf` — CV enlazado desde la navegación.
+  - `favicon.ico` y `favicon.svg` — iconos de la página, ubicados en la raíz de `public/`.
+- `docs/` — materiales de desarrollo y entrega, que no necesita cargar la web:
+  - `Documentacion.docx` — documentación técnica del diseño y del código.
+  - `Documentacion Cronologica.docx` — registro cronológico de las actividades.
+  - `presentaciones/` — presentaciones de CSS y de HTML/Astro.
+  - `prototipo/Portfolio-Penpot.pdf` — exportación en PDF del prototipo realizado en Penpot.
 - `astro.config.mjs` — configuración de Astro, la URL base del sitio y las tipografías.
-- `package.json` — dependencias, versión requerida de Node.js y comandos del proyecto.
+- `package.json` y `pnpm-lock.yaml` — dependencias, versión requerida de Node.js y versiones instaladas.
 - `.github/workflows/deploy.yml` — configuración del despliegue automático en GitHub Pages al actualizar la rama `main`.
 
 ## ¿Quién lo hizo?
