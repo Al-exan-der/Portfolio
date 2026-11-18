@@ -26,6 +26,7 @@ body {
   color: var(--texto);
   font-family: var(--fuente-larga);
   line-height: 1.5rem;
+  margin: 0;
 }
 
 h1,
@@ -135,7 +136,7 @@ h3 {
 .card-imagen {
   position: relative;
   display: block;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
   background-color: var(--fondo);
 }
