@@ -34,9 +34,33 @@ h2 {
   font-family: var(--fuente-corta);
 }
 
+html {
+  scroll-padding-top: var(--space-20); /* 80 px: que el header fijo no tape el título al saltar a una sección */
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
 nav a {
+  padding-bottom: var(--space-1); /* 4 px: separa la línea del texto */
   color: var(--texto);
   text-decoration: none;
+  background: linear-gradient(var(--acento), var(--acento)) left bottom / 0% 2px
+    no-repeat;
+  transition: background-size 0.3s;
+}
+
+nav a:hover,
+nav a:focus-visible {
+  background-size: 100% 2px;
+}
+
+nav a:focus-visible {
+  outline: 2px solid var(--texto-importante);
+  outline-offset: var(--space-1);
 }
 
 nav ul {
@@ -48,7 +72,11 @@ nav ul {
   list-style: none;
 }
 header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
   padding-block: var(--space-6);
+  background-color: var(--fondo);
 }
 
 #proyectos h2 {
@@ -58,8 +86,17 @@ header {
   padding-bottom: var(--space-20);
 }
 footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
   margin-top: var(--space-20);
   padding-block: var(--space-6);
+}
+
+footer p {
+  margin: 0;
 }
 
 h3 {
@@ -123,7 +160,6 @@ h3 {
 }
 
 .boton {
-  margin-top: auto;
   align-self: flex-start;
   padding: var(--space-2) var(--space-4);
   border: 2px solid var(--acento);
@@ -183,6 +219,15 @@ h3 {
   color: var(--texto-importante);
 }
 
+.tecnologias {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin: auto 0 0;
+  padding: 0;
+  list-style: none;
+}
+
 .icono {
   display: inline-block;
   width: var(--space-8);   /* 32 px */
@@ -190,6 +235,12 @@ h3 {
   background-color: var(--texto-importante);
   -webkit-mask: var(--icono) center / contain no-repeat;
   mask: var(--icono) center / contain no-repeat;
+}
+
+.icono-tec {
+  width: var(--space-6); /* 24 px */
+  height: var(--space-6);
+  background-color: var(--texto);
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -230,6 +281,7 @@ h3 {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  nav a,
   .card-imagen,
   .card-imagen img,
   .card-overlay {

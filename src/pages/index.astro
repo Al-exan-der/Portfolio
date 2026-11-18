@@ -2,6 +2,36 @@
 import "../styles/global.css";
 import { Font } from "astro:assets";
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const redes = [
+  {
+    nombre: "GitHub",
+    enlace: "https://github.com/Al-exan-der",
+    icono: "github-icon.svg",
+    externo: true,
+  },
+  {
+    nombre: "LinkedIn",
+    enlace: "https://www.linkedin.com/in/alexis-g%C3%B3mez-a4461a356/",
+    icono: "linkedin-plain.svg",
+    externo: true,
+  },
+  {
+    nombre: "Email",
+    enlace: "mailto:alexgome7i@gmail.com",
+    icono: "google-gmail.svg",
+    externo: false,
+  },
+];
+const iconosTecnologias = {
+  HTML: "html-5.svg",
+  CSS: "css-3.svg",
+  JavaScript: "javascript.svg",
+  PHP: "php.svg",
+  MySQL: "mysql.svg",
+  XAMPP: "xampp.svg",
+  Java: "java.svg",
+  NetBeans: "netbeans.svg",
+};
 const proyectos = [
   {
     titulo: "Proyecto Islas",
@@ -9,18 +39,21 @@ const proyectos = [
       "Sitio web de la escuela técnica, hecho en HTML, CSS y JavaScript para la Feria de Ciencias.",
     enlace: "https://github.com/Nitram-2921/Proyecto-islas",
     imagen: "Islas.png",
+    tecnologias: ["HTML", "CSS", "JavaScript"],
   },
   {
     titulo: "Reactstore",
     descripcion: "Tienda ficticia de videojuegos, hecha con PHP y JavaScript.",
     enlace: "https://github.com/Al-exan-der/Reactstore",
     imagen: "reactstore.png",
+    tecnologias: ["HTML", "CSS", "JavaScript", "PHP", "MySQL", "XAMPP"],
   },
   {
     titulo: "Tetris en Java",
     descripcion: "Tetris con puntaje y niveles, hecho en Java.",
     enlace: "https://github.com/Luketi308/Tetris",
     imagen: "Tetris.png",
+    tecnologias: ["Java", "NetBeans"],
   },
 ];
 ---
@@ -41,8 +74,8 @@ const proyectos = [
     />
   </head>
   <body>
-    <header class="contenedor">
-      <nav>
+    <header>
+      <nav class="contenedor">
         <ul>
           <li>
             <a href="#inicio">Inicio</a>
@@ -82,34 +115,18 @@ const proyectos = [
             con trabajo real.
           </p>
           <ul class="redes">
-            <li>
-              <a
-                class="icono"
-                href="https://github.com/Al-exan-der"
-                target="_blank"
-                rel="noopener"
-                aria-label="GitHub"
-                style={`--icono: url(${base}/iconos/github-icon.svg)`}
-              ></a>
-            </li>
-            <li>
-              <a
-                class="icono"
-                href="https://www.linkedin.com/in/alexis-g%C3%B3mez-a4461a356/"
-                target="_blank"
-                rel="noopener"
-                aria-label="LinkedIn"
-                style={`--icono: url(${base}/iconos/linkedin-plain.svg)`}
-              ></a>
-            </li>
-            <li>
-              <a
-                class="icono"
-                href="mailto:alexgome7i@gmail.com"
-                aria-label="Email"
-                style={`--icono: url(${base}/iconos/google-gmail.svg)`}
-              ></a>
-            </li>
+            {redes.map((r) => (
+              <li>
+                <a
+                  class="icono"
+                  href={r.enlace}
+                  target={r.externo ? "_blank" : undefined}
+                  rel={r.externo ? "noopener" : undefined}
+                  aria-label={r.nombre}
+                  style={`--icono: url(${base}/iconos/${r.icono})`}
+                />
+              </li>
+            ))}
           </ul>
         </div>
       </section>
@@ -136,6 +153,19 @@ const proyectos = [
               </a>
               <h3>{p.titulo}</h3>
               <p>{p.descripcion}</p>
+              <ul class="tecnologias" aria-label="Tecnologías usadas">
+                {p.tecnologias.map((t) => (
+                  <li>
+                    <span
+                      class="icono icono-tec"
+                      role="img"
+                      aria-label={t}
+                      title={t}
+                      style={`--icono: url(${base}/iconos/${iconosTecnologias[t]})`}
+                    />
+                  </li>
+                ))}
+              </ul>
               <a class="boton" href={p.enlace} target="_blank" rel="noopener">
                 Ver proyecto
               </a>
@@ -146,6 +176,20 @@ const proyectos = [
     </main>
     <footer class="contenedor">
       <p>© 2026, Alexis Gómez</p>
+      <ul class="redes">
+        {redes.map((r) => (
+          <li>
+            <a
+              class="icono"
+              href={r.enlace}
+              target={r.externo ? "_blank" : undefined}
+              rel={r.externo ? "noopener" : undefined}
+              aria-label={r.nombre}
+              style={`--icono: url(${base}/iconos/${r.icono})`}
+            />
+          </li>
+        ))}
+      </ul>
     </footer>
   </body>
 </html>
