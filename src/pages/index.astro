@@ -2,6 +2,14 @@
 import "../styles/global.css";
 import { Font } from "astro:assets";
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const titulo = "Alexis Gómez | Desarrollo web";
+const descripcion =
+  "Portfolio de Alexis Gómez, estudiante de desarrollo web. Proyectos en HTML, CSS, JavaScript, PHP, Java y Astro.";
+// El año se calcula al generar la página: se actualiza cada vez que se publica.
+const anio = new Date().getFullYear();
+// Las vistas previas (WhatsApp, LinkedIn) piden direcciones completas, con https://
+const urlPagina = new URL(Astro.url.pathname, Astro.site);
+const urlVistaPrevia = new URL(`${base}/imagenes/vista-previa.png`, Astro.site);
 const redes = [
   {
     nombre: "GitHub",
@@ -65,13 +73,22 @@ const proyectos = [
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
     <link rel="icon" href={`${base}/favicon.ico`} />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
-    <title>Alexis Gómez | Desarrollo web</title>
-    <meta
-      name="description"
-      content="Portfolio de Alexis Gómez, estudiante de desarrollo web. Proyectos en HTML, CSS, JavaScript, PHP, Java y Astro."
-    />
+    <meta name="theme-color" content="#0c090a" />
+    <title>{titulo}</title>
+    <meta name="description" content={descripcion} />
+    <link rel="canonical" href={urlPagina} />
+
+    <!-- Cómo se ve el enlace cuando se comparte (WhatsApp, LinkedIn, etc.) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_AR" />
+    <meta property="og:title" content={titulo} />
+    <meta property="og:description" content={descripcion} />
+    <meta property="og:url" content={urlPagina} />
+    <meta property="og:image" content={urlVistaPrevia} />
+    <meta property="og:image:alt" content="Alexis Gómez, estudiante de desarrollo web" />
+    <meta name="twitter:card" content="summary_large_image" />
   </head>
   <body>
     <header>
@@ -92,7 +109,7 @@ const proyectos = [
         <img
           class="avatar"
           src={`${base}/imagenes/perfil.webp`}
-          alt="Foto de Alexis Gómez"
+          alt="Avatar de Alexis Gómez con la letra A"
           width="400"
           height="400"
         />
@@ -167,7 +184,7 @@ const proyectos = [
       </section>
     </main>
     <footer class="contenedor">
-      <p>© 2026, Alexis Gómez</p>
+      <p>© {anio}, Alexis Gómez</p>
       <ul class="redes">
         {redes.map((r) => (
           <li>

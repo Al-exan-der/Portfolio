@@ -22,16 +22,18 @@
 }
 
 body {
+  margin: 0; /* sin el margen de 8 px que trae el navegador: no está en la escala de espaciado */
   background-color: var(--fondo);
   color: var(--texto);
   font-family: var(--fuente-larga);
-  line-height: 1.5rem;
+  line-height: 1.5; /* sin unidad: cada texto lo multiplica por su propio tamaño de letra */
 }
 
 h1,
 h2 {
   color: var(--texto-importante);
   font-family: var(--fuente-corta);
+  line-height: 1.2; /* los títulos grandes quedan más apretados que el texto común */
 }
 
 html {
@@ -104,6 +106,7 @@ footer p {
 h3 {
   color: var(--texto-importante);
   font-family: var(--fuente-corta);
+  line-height: 1.2;
   margin: 0;
 }
 .contenedor {
@@ -178,7 +181,6 @@ h3 {
   justify-content: space-between;
   gap: var(--space-12);
   padding-block: var(--space-20);
-  padding-inline: var(--space-6);
 }
 
 .portada-texto {
@@ -203,6 +205,11 @@ h3 {
   margin: 0;
 }
 
+/* El nombre crece con la pantalla, entre 36 px y 56 px */
+.portada-texto h1 {
+  font-size: clamp(2.25rem, 1.5rem + 3vw, 3.5rem);
+}
+
 .rol {
   font-family: var(--fuente-corta);
   font-weight: 500;
@@ -219,6 +226,13 @@ h3 {
 
 .redes a {
   color: var(--texto-importante);
+}
+
+/* La máscara del ícono recorta también el contorno de foco, así que
+   el aviso de foco es el cambio de color (violeta: contraste 3,41 a 1, suficiente para no-texto) */
+.redes a:hover,
+.redes a:focus-visible {
+  background-color: var(--acento);
 }
 
 .tecnologias {
