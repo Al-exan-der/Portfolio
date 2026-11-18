@@ -24,6 +24,8 @@
 body {
   background-color: var(--fondo);
   color: var(--texto);
+  font-family: var(--fuente-larga);
+  line-height: 1.5rem;
 }
 
 h1,
@@ -40,7 +42,7 @@ nav a {
 nav ul {
   display: flex;
   justify-content: end;
-  gap: 8px;
+  gap: var(--space-2);
   padding: 0;
   margin: 0;
   list-style: none;
@@ -49,5 +51,51 @@ nav ul {
 .contenedor {
   max-width: 1200px;
   margin-inline: auto;
-  padding-inline: 24px;
+  padding-inline: var(--space-6);
+}
+
+h3 {
+  color: var(--texto-importante);
+  font-family: var(--fuente-corta);
+  margin: 0;
+}
+
+.grilla {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: var(--space-6);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-6);
+  background-color: var(--fondo-tarjetas);
+  clip-path: polygon(
+    0 0,
+    calc(100% - var(--space-12)) 0,
+    100% var(--space-12),
+    100% 100%,
+    0 100%
+  );
+}
+
+.card-imagen {
+  aspect-ratio: 1 / 1;
+  background-color: var(--fondo);
+}
+.card p {
+  margin: 0;
+}
+
+.boton {
+  margin-top: auto;
+  align-self: flex-start;
+  padding: var(--space-2) var(--space-4);
+  border: 2px solid var(--acento);
+  color: var(--texto-importante);
+  font-family: var(--fuente-corta);
+  font-weight: 700;
+  text-decoration: none;
 }

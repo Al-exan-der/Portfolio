@@ -2,6 +2,24 @@
 import "../styles/global.css";
 import { Font } from "astro:assets";
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const proyectos = [
+  {
+    titulo: "Proyecto Islas",
+    descripcion:
+      "Sitio web de la escuela técnica, hecho para la Feria de Ciencias.",
+    enlace: "#",
+  },
+  {
+    titulo: "Reactstore",
+    descripcion: "Tienda web con diseño adaptable a celular y escritorio.",
+    enlace: "#",
+  },
+  {
+    titulo: "Tetris en Java",
+    descripcion: "Tetris con puntaje y niveles, hecho en Java.",
+    enlace: "#",
+  },
+];
 ---
 
 <html lang="es">
@@ -26,7 +44,13 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
             <a href="#proyectos">Proyectos</a>
           </li>
           <li>
-            <a href={`${base}/Alexis%20Gomez.pdf`} target="_blank" rel="noopener">CV</a>
+            <a
+              href={`${base}/Alexis%20Gomez.pdf`}
+              target="_blank"
+              rel="noopener"
+            >
+              CV
+            </a>
           </li>
         </ul>
       </nav>
@@ -37,6 +61,18 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
       </section>
       <section id="proyectos">
         <h2>Proyectos</h2>
+        <div class="grilla">
+          {proyectos.map((p) => (
+            <article class="card">
+              <div class="card-imagen"></div>
+              <h3>{p.titulo}</h3>
+              <p>{p.descripcion}</p>
+              <a class="boton" href={p.enlace} target="_blank" rel="noopener">
+                Ver proyecto
+              </a>
+            </article>
+          ))}
+        </div>
       </section>
     </main>
     <footer class="contenedor">
