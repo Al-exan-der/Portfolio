@@ -23,8 +23,8 @@ git clone https://github.com/Al-exan-der/Portfolio.git && cd Portfolio
 Necesitás tener Node.js `22.23.4` o superior. Después, instalá las dependencias y levantá el servidor de desarrollo:
 
 ```bash
-npm install
-npm run dev
+pnpm install
+pnpm dev
 ```
 
 Astro te va a indicar la dirección local para abrir la página en el navegador (por defecto, `http://localhost:4321`).
@@ -39,7 +39,7 @@ Está organizado en dos secciones principales:
 Los proyectos que aparecen son:
 
 - **Proyecto Islas**: sitio web de la Escuela Técnica N°3 Islas Malvinas.
-- **Reactstore**: tienda ficticia de videojuegos con inicio de sesión y carrito. Los datos se guardan en una base de datos MySQL.
+- **Reactstore**: tienda ficticia de videojuegos con inicio de sesión y carrito. Los datos se guardan en una base de datos MariaDB.
 - **Tetris en Java**: versión del Tetris clásico con puntajes y niveles.
 
 Al final de la página está el footer, que vuelve a mostrar los enlaces de contacto y las redes.
