@@ -35,7 +35,9 @@ h2 {
 }
 
 html {
-  scroll-padding-top: var(--space-20); /* 80 px: que el header fijo no tape el título al saltar a una sección */
+  scroll-padding-top: var(
+    --space-20
+  ); /* 80 px: que el header fijo no tape el título al saltar a una sección */
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -187,14 +189,14 @@ h3 {
 }
 
 .avatar {
-  width: 25rem; /* 300 px, excepción a la escala */
+  width: 25rem;
   max-width: 100%;
+  height: auto;
   aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: 50%;
   border: 2px solid var(--acento);
 }
-
 
 .portada-texto h1,
 .portada-texto p {
@@ -230,7 +232,7 @@ h3 {
 
 .icono {
   display: inline-block;
-  width: var(--space-8);   /* 32 px */
+  width: var(--space-8); /* 32 px */
   height: var(--space-8);
   background-color: var(--texto-importante);
   -webkit-mask: var(--icono) center / contain no-repeat;
