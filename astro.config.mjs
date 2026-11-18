@@ -2,6 +2,8 @@
 import { defineConfig, fontProviders } from "astro/config";
 
 export default defineConfig({
+  site: "https://al-exan-der.github.io",
+  base: "/Portfolio",
   fonts: [
     {
       provider: fontProviders.fontsource(),
@@ -12,7 +14,7 @@ export default defineConfig({
     },
     {
       provider: fontProviders.fontsource(),
-      name: "inter",
+      name: "Inter",
       cssVariable: "--font-inter",
       weights: [400, 600],
     },
