@@ -9,8 +9,8 @@
   --texto-importante: #fffacd;
   --acento: #8f00ff;
 
-  --fuente-corta: "Oxanium", sans-serif;
-  --fuente-larga: "Inter", sans-serif;
+  --fuente-corta: var(--font-oxanium), sans-serif;
+  --fuente-larga: var(--font-inter), sans-serif;
 
   --space-1: 0.25rem; /* 4 */
   --space-2: 0.5rem; /* 8 */
@@ -26,7 +26,6 @@ body {
   color: var(--texto);
   font-family: var(--fuente-larga);
   line-height: 1.5rem;
-  margin: 0;
 }
 
 h1,
@@ -136,7 +135,7 @@ h3 {
 .card-imagen {
   position: relative;
   display: block;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
   background-color: var(--fondo);
 }
