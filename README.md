@@ -59,7 +59,7 @@ El repositorio separa el código, los recursos publicados y los materiales de do
   - `favicon.ico` y `favicon.svg` — iconos de la página, ubicados en la raíz de `public/`.
 - `docs/` — materiales de desarrollo y entrega, que no necesita cargar la web:
   - `Documentacion.docx` — documentación técnica del diseño y del código.
-  - `Documentacion Cronologica.docx` — registro cronológico de las actividades.
+  - `Documentacion Cronologica.md` — registro cronológico de las actividades.
   - `presentaciones/` — presentaciones de CSS y de HTML/Astro.
   - `prototipo/Portfolio-Penpot.pdf` — exportación en PDF del prototipo realizado en Penpot.
 - `astro.config.mjs` — configuración de Astro, la URL base del sitio y las tipografías.
